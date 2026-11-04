@@ -1,0 +1,4 @@
+<div class="heading"><h2>Categorias</h2><a class="btn" href="<?= e(url('categorias','create')) ?>">+ Nova categoria</a></div>
+<div class="table-box"><table><thead><tr><th>ID</th><th>Nome</th><th>Ações</th></tr></thead><tbody>
+<?php foreach($registros as $r): ?><tr><td><?= e($r['id']) ?></td><td><?= e($r['nome']) ?></td><td class="actions"><a class="btn small" href="<?= e(url('categorias','edit',(int)$r['id'])) ?>">Editar</a><form method="post" action="<?= e(url('categorias','delete',(int)$r['id'])) ?>" onsubmit="return confirm('Excluir esta categoria? Seus produtos também serão excluídos.');"><input type="hidden" name="token" value="<?= e(token()) ?>"><button type="submit" class="btn danger small">Excluir</button></form></td></tr><?php endforeach; ?>
+<?php if(!$registros): ?><tr><td colspan="3">Nenhuma categoria cadastrada.</td></tr><?php endif; ?></tbody></table></div>

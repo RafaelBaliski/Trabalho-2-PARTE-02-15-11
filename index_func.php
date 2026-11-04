@@ -1,0 +1,5 @@
+<div class="heading"><div><h2>Funcionários</h2><p class="muted">Cadastros feitos no sistema de RH.</p></div><a class="btn" href="<?= e(url('funcionarios','create')) ?>">+ Contratar funcionário</a></div>
+<div class="table-box"><table><thead><tr><th>ID</th><th>Nome</th><th>Cargo</th><th>Departamento</th><th>Nível</th><th>Admissão</th><th>Status</th></tr></thead><tbody>
+<?php foreach($registros as $r): ?><tr><td><?= e($r['id']) ?></td><td><strong><?= e($r['nome']) ?></strong><div class="muted small-text"><?= e($r['email']) ?></div></td><td><?= e($r['cargo']) ?></td><td><?= e($r['departamento_nome']) ?></td><td><?= e($r['nivel_nome']) ?></td><td><?= e(date('d/m/Y',strtotime($r['data_admissao']))) ?></td><td><span class="tag"><?= e($r['status']) ?></span></td></tr><?php endforeach; ?>
+<?php if (!$registros): ?><tr><td colspan="7">Nenhum funcionário cadastrado. Clique em Contratar funcionário para começar.</td></tr><?php endif; ?></tbody></table></div>
+<p class="muted small-text">Nesta primeira etapa, somente o cadastro e a listagem de funcionários foram implementados. Edição, demissão e tarefas serão desenvolvidas depois.</p>
